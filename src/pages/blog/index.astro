@@ -9,6 +9,10 @@ import FormattedDate from '../../components/FormattedDate.astro';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+//microCMS呼び出し
+import { getBlogs } from "../../library/microcms";
+const response = await getBlogs({ fields: ["id", "title"] });
 ---
 
 <!DOCTYPE html>
@@ -36,19 +40,24 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<FormattedDate date={post.data.pubDate} />
-								<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
+			<ul>
+				{
+				  response.contents.map((content: any) => (
+					<li>
+					  <a href={content.id}>{content.title}</a>
+					</li>
+				  ))
+				}
+			  </ul>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	main {
+	  margin: auto;
+	  padding: 1em;
+	  max-width: 60ch;
+	}
+  </style>
