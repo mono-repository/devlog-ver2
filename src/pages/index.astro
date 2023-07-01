@@ -13,7 +13,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header title={SITE_TITLE} />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
+			<div class="latest">
+				<p>latest</p>
+			</div>
+
+			<!-- <h1>🧑‍🚀 Hello, Astronaut!</h1>
 			<p>
 				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
 				template serves as a lightweight, minimally-styled starting point for anyone looking to build
@@ -43,8 +47,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					href="https://github.com/Charca/astro-blog-template"
 					>astro-blog-template
 				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			</p> -->
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.latest p{
+		font-size:1em;
+		font-family: 'Courier New', Courier, monospace;
+		background-color: rgb(233, 233, 233);
+		padding-left: 1em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		font-weight: bold;
+	}
+</style>
