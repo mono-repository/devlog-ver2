@@ -1,0 +1,46 @@
+---
+const month = new Intl.DateTimeFormat('en', { month: 'long'}).format(new Date);
+---
+<!--今後、microCSMでも今月の抱負を管理したい -->
+<header>
+    <div class="header_background">
+        <h2>
+            🚩 {month}'s resolution 🚩
+        </h2>
+            <ul>
+                <li>🌠Astro×Vercel</li>
+                <li>🤖TPIP4 develop</li>
+                <li>🎞️Unreal Engine5 Movie Creation</li>
+                <li>🛜ROS2 research</li>
+              </ul>
+        <p>I'll publish these theme articles!!!</p>
+    </div>
+    
+</header>
+
+<style>
+    .header_background{
+        padding-left: 0.5em;
+        padding-bottom: 0.5em;
+        padding-right: 0.5em;
+		background-color: rgb(233, 233, 233);
+    }
+    h2 {
+        padding-top: 0.5em;
+        margin-bottom: -0.1em;
+    }
+    p {
+        /* margin-top: -1em; */
+    }
+
+    ul, ol {
+        background: #fcfcfc;/*背景色*/
+        padding: 0.5em 0.5em 0.5em 2em;/*ボックス内の余白*/
+        border: solid 3px gray;/*線の種類 太さ 色*/
+    }
+
+    ul li, ol li {
+        line-height: 1.5; /*文の行高*/
+        padding: 0.5em 0; 前後の文との余白
+    }
+</style>

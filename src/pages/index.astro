@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import HeaderBody from '../components/HeaderResolution.astro';
 ---
 
 <!DOCTYPE html>
@@ -12,10 +13,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
-		<main>
-			<div class="latest">
-				<p>latest</p>
-			</div>
+		
+			<HeaderBody></HeaderBody>
 
 			<h1>1時間でできるWebサイトリリース</h1>
 
@@ -56,14 +55,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 </html>
 
 <style>
-	.latest p{
-		font-size:1em;
-		font-family: 'Courier New', Courier, monospace;
-		background-color: rgb(233, 233, 233);
-		padding-left: 1em;
-		padding-top: 0.5em;
-		padding-bottom: 0.5em;
-		font-weight: bold;
-	}
+	
 	
 </style>
