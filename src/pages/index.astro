@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import HeaderBody from '../components/HeaderResolution.astro';
+import Layout from '../layouts/TopicCards.astro';
 ---
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ import HeaderBody from '../components/HeaderResolution.astro';
 		
 			<HeaderBody></HeaderBody>
 
-			
+			<Layout></Layout>
 		</main>
 		<Footer />
 	</body>
