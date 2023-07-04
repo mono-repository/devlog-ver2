@@ -1,12 +1,58 @@
+---
+const txt = "article"
+---
+
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link href="https://unpkg.com/pattern.css" rel="stylesheet">
     </head>
 
     <body>
-        <p>
-            トピックカード
-        </p>
+        <main>
+        <h2>Feature articles</h2>
+            <div class="flex">
+                <div class="item">
+                     <h3>Astro + Vercel</h3>
+                </div>
+                <div class="item">
+                    <h3>TPIP4</h3>
+                </div>
+                <div class="item">
+                    <h3>UE5</h3>
+                </div>
+                <div class="item">
+                    <h3>ROS2</h3>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
+
+<style>
+
+main{
+    background-color: #F2F2F2;
+}
+.flex {
+position: relative;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+}
+
+.item {
+width: 45%;
+margin: 1%;
+text-align: center;
+background-color: #fad1a7;
+}
+
+h3{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+
+</style>

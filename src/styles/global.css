@@ -5,7 +5,8 @@
  */
 body {
 	font-family: Verdana, sans-serif;
-	margin: auto;
+	margin-left: auto;
+	margin-right:auto;
 	padding: 20px;
 	max-width: 65ch;
 	text-align: left;
@@ -14,6 +15,7 @@ body {
 	overflow-wrap: break-word;
 	line-height: 1.5;
 	color: #444;
+
 }
 h1,
 h2,
@@ -65,12 +67,3 @@ blockquote {
 	margin: 0px;
 	font-style: italic;
 }
-@font-face {
-	font-family: 'Pacifico';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Pacifico Regular'), local('Pacifico-Regular'),
-	  url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2)
-		format('woff2');
-	font-display: swap;
-  }

@@ -37,6 +37,7 @@ const response = await getBlogs({ fields: ["id", "title"] });
 	<body>
 		<Header />
 		<main>
+			<p class="latest">latest</p>
 			<ul>
 				{
 				  response.contents.map((content: any) => (
@@ -56,5 +57,10 @@ const response = await getBlogs({ fields: ["id", "title"] });
 	  margin: auto;
 	  padding: 1em;
 	  max-width: 60ch;
+	}
+	.latest{
+		font-size: medium;
+		font-family: 'Courier New', Courier, monospace;
+		
 	}
   </style>
