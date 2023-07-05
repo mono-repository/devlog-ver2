@@ -10,7 +10,7 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
-	<slot />
+	<slot/>
 </a>
 <style>
 	a {	
@@ -27,7 +27,7 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 		padding-left: 1em;
 		border-style: dashed solid ;
 	}
-	 a::before{
+	 a + a::before{
 		content: "";
 		display: block;
 		height: 1.5em;
@@ -38,5 +38,6 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 		transform: translateX(-50%);
 		-webkit-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);
+		
 	}
 </style>
