@@ -6,18 +6,14 @@ import { SITE_TITLE,SITE_DESCRIPTION } from '../consts';
 <header>
 	
 	<div class="flex">
-			<h2>
-				{SITE_TITLE}
-			</h2>
-			<h5>
-				{SITE_DESCRIPTION}
-			</h5>
+		<a href="/"><h2>{SITE_TITLE}</h2></a>
+		<h5>{SITE_DESCRIPTION}</h5>
 	</div>
 	<nav>
-		<HeaderLink href="/">Note</HeaderLink>
-		<HeaderLink href="/blog">Archive </HeaderLink>
+		<HeaderLink href="/">Topic</HeaderLink>
+		<HeaderLink href="/blog">archive</HeaderLink>
+		<!-- <HeaderLink href="/note">idea</HeaderLink> -->
 		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
 		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
 	</nav>
 </header>
