@@ -24,15 +24,32 @@ export type BlogResponse = {
 
 //APIの呼び出し
 export const getBlogs = async (queries?: MicroCMSQueries) => {
-  return await client.get<BlogResponse>({ endpoint: "blogs", queries });
+  return await client.get<BlogResponse>({ endpoint: "note", queries });
 };
 export const getBlogDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
   return await client.getListDetail<Blog>({
-    endpoint: "blogs",
+    endpoint: "note",
     contentId,
     queries,
   });
+  
 };
+
+// microCMSへAPIリクエスト
+// export const getStaticProps: GetStaticProps<Props, Params> = async (
+//   context: GetStaticPropsContext<Params, PreviewData>,
+// ) => {
+//   const id = context.params?.id;
+//   const blog = await client.get({ endpoint: 'blogs', contentId: id });
+
+//   // custom Contentの文字列を全て結合
+//   let all_content: string = '';
+
+//   //カスタムフィールドの繰り返しの分だけ結合
+//   blog.content.map((content: content) => {
+//     all_content += content.richEditor;
+//     all_content += content.html;
+//   });
