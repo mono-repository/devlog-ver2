@@ -7,16 +7,42 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, birthDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="flex">
+					<div class="item">{heroImage && <img width={300} height={300} src={heroImage} alt="" />}</item>
+					<div class="txt">
+						<hr>
+						<h1 class="title">{title}</h1>
+					<FormattedDate date={birthDate} />
+					{
+						updatedDate && (
+							<div class="last-updated-on">Last updated on <FormattedDate date={updatedDate} /></div>)
+					}
+					<hr />
+					
+					</div>			
+				</div>
+				<slot />
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.title {
+				margin: 0.25em 0 0 ;
 			}
 			hr {
 				border-top: 1px solid #ddd;
@@ -25,24 +51,20 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
-		</style>
-	</head>
+	.flex{
+		height: fit-content;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content:space-around;
+		align-items:last center;
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-				<h1 class="title">{title}</h1>
-				<FormattedDate date={pubDate} />
-				{
-					updatedDate && (
-						<div class="last-updated-on">Last updated on <FormattedDate date={updatedDate} /></div>)
-				}
-				<hr />
-				<slot />
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+	}
+	.txt{
+		width: 45%;
+	}
+
+	img{
+		margin: 1%;
+	}
+
+</style>
