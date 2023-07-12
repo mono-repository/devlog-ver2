@@ -1,13 +1,14 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import { AUTHOR } from '../consts';
 ---
 
 <Layout
-	title="Mio Yamamoto"
-	description="Introduction Mio Yamamoto"
+	title={AUTHOR}
+	description=""
 	pubDate={new Date('June 28, 2023')}
 	updatedDate={new Date('July 3 2023')}
-	heroImage="/placeholder-about.jpg">
+	heroImage="/placeholder-about.jpeg">
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
@@ -60,3 +61,4 @@ import Layout from '../layouts/BlogPost.astro';
 		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
 	</p>
 </Layout>
+

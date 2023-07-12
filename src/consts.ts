@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'open-devlog';
 export const SITE_DESCRIPTION = 'developper archive';
-export const AUTHOR = "Mio Yamamoto";
+export const AUTHOR = "Yamamoto Mio";
