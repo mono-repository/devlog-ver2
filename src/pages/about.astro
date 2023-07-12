@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
-import { AUTHOR } from '../consts';
+import { AUTHOR,CAREER } from '../consts';
 ---
 
 <Layout
 	title={AUTHOR}
-	description=""
+	description={CAREER}
 	pubDate={new Date('June 28, 2023')}
 	updatedDate={new Date('July 3 2023')}
 	heroImage="/placeholder-about.jpeg">
