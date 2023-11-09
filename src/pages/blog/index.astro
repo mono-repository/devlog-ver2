@@ -36,9 +36,6 @@ const response = await getBlogs({ fields: ["id", "title"] });
 	</head>
 	<body>
 		<Header />
-		<div class="latest">
-			<p>latest posts(Written in English)</p>
-		</div>
 		<main>
 			<ul>
 				{
@@ -50,15 +47,7 @@ const response = await getBlogs({ fields: ["id", "title"] });
 				}
 			</ul>
 		</main>
-
-		<div class="latest">
-			<p>最新の投稿(日本語記事)</p><p>英語・日本語区分け機能、7月末実装予定</p>
-		</div>
-		
-
 		<br>
-			
-
 		<Footer />
 	</body>
 </html>
