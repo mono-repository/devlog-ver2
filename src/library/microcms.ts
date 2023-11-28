@@ -1,9 +1,33 @@
 //SDK利用準備
+import axios from 'axios';
 import { createClient, MicroCMSQueries } from "microcms-js-sdk";
 const client = createClient({
   serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
   apiKey: import.meta.env.MICROCMS_API_KEY,
 });
+
+//ブログ件数の取得
+export async function getBlogCount() {
+  try {
+    const response = await axios.get('note', {
+      headers: {
+        'X-API-KEY': import.meta.env.MICROCMS_API_KEY,
+      },
+      params: {
+        limit: 100, // 1件だけ取得することで総数を取得
+      },
+    });
+
+    // 総数はレスポンスのメタ情報に含まれています
+    const totalCount = response.data.totalCount;
+
+    console.log("ブログ記事の総数:", totalCount);
+
+    return totalCount;
+  } catch (error) {
+    console.error("ブログ記事の総数の取得に失敗しました:", error);
+  }
+}
 
 //型定義
 export type Blog = {
@@ -37,6 +61,7 @@ export const getBlogDetail = async (
   });
   
 };
+
 
 // microCMSへAPIリクエスト
 // export const getStaticProps: GetStaticProps<Props, Params> = async (

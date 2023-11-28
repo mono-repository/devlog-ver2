@@ -1,8 +1,10 @@
 ---
 const txt = "article"
 
+import { getBlogCount } from "../library/microcms";
+import * as styles from 'global.css'
 ---
-
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -18,8 +20,8 @@ const txt = "article"
       import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.117.1/build/three.module.js';
 
       // サイズを指定
-      const width = 960;
-      const height = 540;
+      const width = window.innerWidth;
+      const height = window.innerHeight/3;
 
       // マウス座標管理用のベクトルを作成
       const mouse = new THREE.Vector2();
@@ -46,7 +48,7 @@ const txt = "article"
       // マウスとの交差を調べたいものは配列に格納する
       // 記事の総数を獲得し、それの数だけキューブを生成する
       const meshList = [];
-      for (let i = 0; i < 1000; i++) {
+      for (let i = 0; i < 100; i++) {
         const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
 
         const mesh = new THREE.Mesh(geometry, material);
@@ -118,6 +120,23 @@ const txt = "article"
           }
         });
 
+        window.addEventListener('resize', () => {
+        // 更新された画面サイズを取得
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        if(width > 800){
+          camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+
+        // レンダラーのサイズを更新
+        renderer.setSize(width/2, height/2.5);
+        }
+        // カメラのアスペクト比を更新
+        
+      });
+
+
         // レンダリング
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
@@ -125,13 +144,24 @@ const txt = "article"
     </script>
   </head>
   <body>
+    <p class="total"><span>総合記事数 : </span>{{ getBlogCount }}件</p>
     <canvas id="myCanvas"></canvas>
   </body>
 </html>
 <style>
 
-main{
-  margin: 0;
-  overflow: hidden;
+body {
+  font-family: Verdana, sans-serif;
+	margin-left: auto;
+	margin-right:auto;
+	padding: 20px;
+	max-width: 65ch;
+	text-align: left;
+	background-color: #fff;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	line-height: 1.5;
+	color: #444;
 }
+
 </style>

@@ -25,7 +25,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					{heroImage && <img width={300} height={300} src={heroImage} alt="" />}
 					<div class="txt">
 						<h1 class="title">{title}</h1>
-						<p>{CAREER}</p>
+						<p class="whitespace-pre-wrap">{CAREER}</p>
 					<div class="last-updated-on">Found<FormattedDate date={pubDate} /></div>
 					{
 					updatedDate && (
