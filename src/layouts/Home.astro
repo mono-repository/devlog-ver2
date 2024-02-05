@@ -20,8 +20,16 @@ import * as styles from 'global.css'
       import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.117.1/build/three.module.js';
 
       // サイズを指定
-      const width = window.innerWidth;
-      const height = window.innerHeight/3;
+      const width = 480;
+      const height = 300;
+
+      const maxWidthInCh = 65; //描写の最大幅を合わせる
+      const oneChWidth = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const maxWidthInPixels = maxWidthInCh * oneChWidth;
+      // ウィンドウの幅と比較して小さい方を採用
+      const finalWidth = Math.min(window.innerWidth, maxWidthInPixels);
+      const finalHeight = finalWidth * (height / width);
+
 
       // マウス座標管理用のベクトルを作成
       const mouse = new THREE.Vector2();
@@ -34,7 +42,7 @@ import * as styles from 'global.css'
         canvas: canvas,
       });
       renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize(width, height);
+      renderer.setSize(finalWidth, finalHeight);
 
       // シーンを作成
       const scene = new THREE.Scene();
